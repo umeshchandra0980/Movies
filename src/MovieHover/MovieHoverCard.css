@@ -1,0 +1,89 @@
+.movie-card {
+    position: relative;
+    width: 200px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .poster {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+  
+  .movie-card:hover {
+    transform: scale(1.4) translateY(-40px);
+    z-index: 99;
+  }
+  
+  .hover-modal {
+    position: absolute;
+    top: -160px;
+    left: -80px;
+    width: 400px;
+    background: #111;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    overflow: hidden;
+    animation: fadeIn 0.3s ease forwards;
+  }
+  
+  .trailer-preview {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .modal-content {
+    padding: 1rem;
+    color: white;
+  }
+  
+  .modal-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .modal-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .modal-buttons button {
+    padding: 6px 12px;
+    border: none;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .meta {
+    display: flex;
+    gap: 12px;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.7;
+  }
+  
+  .description {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .genres {
+    font-size: 0.8rem;
+    color: #999;
+  }
+  
+  .cast {
+    font-size: 0.75rem;
+    color: #888;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
