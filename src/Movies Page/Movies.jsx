@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import CinematicBackground from '../Home/CinematicBackground'
 import Nav from '../Nav/Nav';
 import { API_KEY } from '../Constance/Constance';
+import { useWishlist } from '../conText/Whishlist';
+import { Link } from 'react-router';
 const videos = [
     {
       video: '/Travis.mp4',
@@ -25,6 +27,7 @@ const videos = [
 
 export default function Movies() {
   const [moviesShows,setmoviesShows] = useState([])
+   const { addToWishlist, removeFromWishlist, wishlist } = useWishlist();
   
   useEffect(() => {
 
@@ -48,6 +51,7 @@ export default function Movies() {
                             vote_average: each.vote_average,
                             adult: each.adult,
                             original_language: each.original_language,
+                            backdrop_path:each.backdrop_path,
                           }));
                           setmoviesShows(fetchedData);
                         }
@@ -56,6 +60,9 @@ export default function Movies() {
                       fun();
     
   },[])
+
+
+  
   return (
     <div>
       <Nav/>
@@ -73,8 +80,8 @@ export default function Movies() {
          <h3>{movie.title}</h3>
          <p>⭐ {movie.vote_average.toFixed(1)}</p>
          <div className="card-actions">
-           <button className="glass-btn" onClick={() => onShowTrailer(movie.id)}>🎬 Trailer</button>
-           <button className="glass-btn">❤️ Wishlist</button>
+           <button className="glass-btn" onClick={() => onShowTrailer(movie.id)}><Link to={`/home/movies/${movie.id}`}>🎬 Trailer </Link></button>
+           <button className="glass-btn" onClick={() => addToWishlist(movie)}>❤️ Wishlist</button>
          </div>
        </div>
        </div>

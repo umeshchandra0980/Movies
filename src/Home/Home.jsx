@@ -56,7 +56,7 @@ const videos = [
       description: "An alien from Krypton becomes Earth's greatest protector while balancing his life as Clark Kent.",
     },
     {
-      video: '/The Batman.mp4',
+      video: '/TheBatman.mp4',
       title: "The Batman",
       description: "In Gotham’s darkest days, Batman uncovers corruption while facing a serial killer known as The Riddler.",
     }

@@ -18,7 +18,8 @@ export default function UpcomingMovies() {
             title:each.title,
             poster_path:each.poster_path,
             release_date:each.release_date,
-            rating:each.vote_average
+            rating:each.vote_average,
+            backdrop_path:each.backdrop_path,
          }
         } )
         setUpcomingMovies(totalData)

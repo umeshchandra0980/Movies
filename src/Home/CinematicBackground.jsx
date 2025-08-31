@@ -68,7 +68,7 @@ export default function CinematicBackground({videos,images}) {
 
 
 
-     
+<div className="row__fadeBottom"></div>
     </div>
   );
 }

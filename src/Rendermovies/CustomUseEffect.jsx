@@ -18,7 +18,8 @@ export default function CustomUseEffect(endpoint) {
                              title:each.title,
                              poster_path:each.poster_path,
                              overview:each.overview,
-                            rating:each.vote_average,     
+                            rating:each.vote_average,  
+                            backdrop_path:each.backdrop_path,   
                             
                          }
                         })

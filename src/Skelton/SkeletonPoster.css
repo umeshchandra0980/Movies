@@ -1,0 +1,19 @@
+.skeleton-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.skeleton-poster {
+  background: linear-gradient(90deg, #2c2c2c 25%, #3d3d3d 37%, #2c2c2c 63%);
+  background-size: 400% 100%;
+  border-radius: 12px;
+  animation: shimmer 1.2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}

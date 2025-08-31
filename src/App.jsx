@@ -1,66 +1,81 @@
-import Login from "./Login/Login"
-import Home from "./Home/Home"
-import { Route,Routes } from "react-router"
-import ProviderRoute from "./Provider/ProviderRoute"
-import NewTralier from "./Trailes/NewTralier"
-import AllMovies from "./Rendermovies/AllMovies"
-import SearchSections from './SeachSections/searchBar'
+import React, { Suspense, lazy } from "react";
+import { Route, Routes } from "react-router";
+import { SearchProvider } from "./Search/SearchProvider";
+import NetflixLoader from "./NetflixLoder/NetflixLoader"; // fallback loader
+import LoadingAni from "./LoadingAnimation/LoadingAni.jsx";
+import SplashScreen from "./SplashScreen/SplashScreen.jsx";
+// Lazy imports
+const Login = lazy(() => import("./Login/Login"));
+const Home = lazy(() => import("./Home/Home"));
+const ProviderRoute = lazy(() => import("./Provider/ProviderRoute"));
+const NewTralier = lazy(() => import("./Trailes/NewTralier"));
+const AllMovies = lazy(() => import("./Rendermovies/AllMovies"));
+const SearchResults = lazy(() => import("./SeachSections/SearchResults"));
+const TvShowsTrailer = lazy(() => import("./Trailes/TvShowsTrailer"));
+const Account = lazy(() => import("./AccountsPage/Account"));
+const Tvshowsoflink = lazy(() => import("./TvShows/Tvshowsoflink"));
+const Movies = lazy(() => import("./Movies Page/Movies"));
+const MovieList = lazy(() => import("./NetflixMovieCardModel/MovieList"));
+const WishlistPage = lazy(() => import("./Whislist/WishListPage.jsx"));
+const Signup = lazy(() => import("./Login/Signup.jsx"));
 
-// import SearchProvider from "./conText/SearchProvider"
-import Nav from "./Nav/Nav"
-import TvShowsTrailer from "./Trailes/TvShowsTrailer"
-// import SearchPage from "./SeachSections/Pages"
-import { useState } from "react"
-import { SearchProvider } from "./Search/SearchProvider"
-import SearchResults from "./SeachSections/SearchResults"
-import SplashScreen from "./SplashScreen/SplashScreen"
-import NetflixLoader from "./NetflixLoder/NetflixLoader"
-import LoadingAni from "./LoadingAnimation/LoadingAni"
-import Welcome from "./Welcome Animation/Welcome"
-import Account from "./AccountsPage/Account"
-import Tvshowsoflink from "./TvShows/Tvshowsoflink"
-import Movies from "./Movies Page/Movies"
-import MovieHoverCard from "./MovieHover/MovieHoverCard"
-import Actors from "./ActorsAndAll/Actors"
-import VideoSequence from "./FramerMotilons/VideoSequence"
 function App() {
-
-  
-  
-
   return (
-    <>
-    
- <SearchProvider> 
-
-      <Routes>
-
-
-        <Route path="/home" element={
-          <ProviderRoute>    <Home/>    </ProviderRoute>
-       }></Route>
-        <Route path="/" element={<Home/>}></Route>
-       
-         {/* {<Route path="/search" element={<SearchResults/>}></Route> } */}
-        <Route path="/popular" element={<AllMovies/>}></Route>
-        <Route path="/Tvshows" element={<Tvshowsoflink/>} ></Route>
-        <Route path="/login" element={<Login/>} ></Route>
-        <Route path="/home/movies/:id" element={<NewTralier/>}></Route>
-        <Route path="/tvshows/:id" element={<TvShowsTrailer/>}></Route>
-        <Route path="/splash" element={<SplashScreen />} />
-        <Route path="/Neflix" element={<NetflixLoader/>} ></Route>
-        {/* <Route path="/TvShows" element={}></Route> */}
-        <Route path="wel" element={<MovieHoverCard/>}></Route>
-        {/* <Route path="/3" element={<LoadingAni/>}></Route> */}
-        <Route path="/Acounts" element={<Account/>}></Route>
-        <Route path="/Movies" element={<Movies/>}></Route>
-        <Route path="/actors" element={<Actors/>}></Route>
-        <Route path="/WishList" element={<VideoSequence/>}></Route>
-
-      </Routes>
-      </SearchProvider>
-    </>
-  )
+    <SearchProvider>
+      <Suspense fallback={<p>loading</p>}>
+        <Routes>
+          <Route
+            path="/home"
+            element={
+              <ProviderRoute>
+                <Home />
+              </ProviderRoute>
+            }
+          />
+          <Route
+            path="/"
+            element={
+              <ProviderRoute>
+                <Home />
+              </ProviderRoute>
+            }
+          />
+          <Route path="/popular" element={
+             <ProviderRoute> 
+            <AllMovies />  </ProviderRoute>} />
+          
+          <Route path="/Tvshows" element={<Tvshowsoflink />} />
+          <Route path="/login" element={
+            <Login />
+            } />
+          <Route path="/home/movies/:id" element={<NewTralier />} />
+          <Route path="/tvshows/:id" element={<TvShowsTrailer />} />
+          <Route path="/Neflix" element={    <NetflixLoader />} />
+          <Route path="/signUp" element={<Signup />} />
+          <Route path="/account" element={<Account />} />
+          <Route path="/Movies" element={<Movies />} />
+          <Route path="/MovieCard" element={<MovieList />} />
+          <Route path="/WishList" element={
+            <WishlistPage />} />
+        </Routes>
+      </Suspense>
+    </SearchProvider>
+  );
 }
+
+
+
+const PageWrapper = ({ children }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: 50 }}    // starting position
+      animate={{ opacity: 1, x: 0 }}     // enters to normal
+      exit={{ opacity: 0, x: -50 }}      // exit animation
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+    >
+      {children}
+    </motion.div>
+  );
+};
 
 export default App

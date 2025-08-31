@@ -1,6 +1,6 @@
 import React, { useEffect,useState } from 'react'
 import { useParams } from 'react-router'
-
+import Nav from '../Nav/Nav'
 import './new.css'
 import ReactPlayer from 'react-player'
 export default function NewTralier() {
@@ -95,6 +95,7 @@ console.log("logged outside",actors)
   return (
  
       <div  >
+        <Nav/>
 
       
    {/* { movietr? 
@@ -125,6 +126,7 @@ console.log("logged outside",actors)
     <p>Is loading  </p>
 } */}
   {movietr?
+  
 
 <div
   className="movie-banner"
@@ -139,6 +141,7 @@ console.log("logged outside",actors)
     display: 'flex',
     alignItems: 'flex-start',  // top alignment
     justifyContent: 'flex-start',
+    zIndex:'0',
      // give spacing from top/left
     boxSizing: 'border-box',
 

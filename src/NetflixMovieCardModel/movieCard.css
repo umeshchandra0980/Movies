@@ -1,0 +1,84 @@
+.movie-thumb {
+    width: 200px;
+    cursor: pointer;
+  }
+  .movie-thumb img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  .card-wrapper {
+    position: relative;
+  }
+  .trigger:hover + .hover-card,
+  .hover-card:hover {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .hover-card {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 40px;
+    z-index: 999;
+  }
+  
+  .modal-container {
+    background: #141414;
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 900px;
+    width: 90%;
+  }
+  
+  .modal-backdrop {
+    position: relative;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .modal-top-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+  }
+  
+  .buttons {
+    margin-top: 10px;
+  }
+  .play-btn,
+  .add-btn,
+  .like-btn {
+    background: white;
+    border: none;
+    padding: 8px 14px;
+    margin-right: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .modal-details {
+    padding: 20px;
+    color: white;
+  }
+  
+  .meta {
+    display: flex;
+    gap: 10px;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
+  .description {
+    margin-bottom: 10px;
+  }
+  

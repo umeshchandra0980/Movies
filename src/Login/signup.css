@@ -1,0 +1,126 @@
+/* Full-page background */
+.signup-main {
+    height: 100vh;
+    background: url("https://assets.nflxext.com/ffe/siteui/vlv3/05e91faa-6f6d-4325-934e-5418dcc2567b/web/IN-en-20250630-TRIFECTA-perspective_159086b1-425f-435b-bcd5-1ed8039cdef9_large.jpg")
+      center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.65);
+  }
+  
+  /* Signup card */
+  .signup-container {
+    position: relative;
+    background: rgba(0, 0, 0, 0.85);
+    width: 400px;
+    padding: 48px 36px;
+    border-radius: 8px;
+    box-shadow: 0 0 40px rgba(229, 9, 20, 0.4); /* Netflix glow */
+    color: white;
+    backdrop-filter: blur(10px);
+    animation: fadeIn 0.4s ease-out;
+    text-align: left;
+    z-index: 2;
+  }
+  
+  /* Logo */
+  .logo {
+    display: block;
+    margin: 0 auto 20px;
+    width: 140px;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  /* Heading */
+  .signup-form h2 {
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 28px;
+    font-weight: 700;
+    color: #fff;
+  }
+  
+  /* Labels */
+  .signup-form label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 6px;
+    margin-top: 18px;
+    color: #b3b3b3;
+  }
+  
+  /* Inputs */
+  .signup-form input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    background: #333;
+    color: white;
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+  
+  /* Error */
+  .error-message {
+    color: #e87c03;
+    font-size: 14px;
+    margin-top: 6px;
+  }
+  
+  /* Button */
+  .signup-form button {
+    width: 100%;
+    padding: 14px;
+    background-color: #e50914;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    margin-top: 26px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .signup-form button:hover {
+    background-color: #f6121d;
+  }
+  
+  /* Switch link */
+  .switch-text {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #b3b3b3;
+    text-align: center;
+  }
+  
+  .switch-text span {
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  
+  /* Animation */
+  @keyframes fadeIn {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  

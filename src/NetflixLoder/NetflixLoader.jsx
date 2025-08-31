@@ -39,7 +39,7 @@ export default function NetflixLoader() {
 {del?
 <div id="container">        
 {/* <!-- Edit the letter attr to: N, E, T, F, L, I or X --> */}
-   <netflixintro letter="N">
+   <netflixintro letter="T">
     <div class="helper-1">
       <div class="effect-brush">
         <span class="fur-31"></span>

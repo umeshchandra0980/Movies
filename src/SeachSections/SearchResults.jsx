@@ -1,5 +1,5 @@
 // SearchResults.jsx
-import { useLocation } from 'react-router';
+import { Link, useLocation } from 'react-router';
 import { useEffect, useState } from 'react';
 import BeatLoader from 'react-spinners/BeatLoader'
 import './search.css'
@@ -115,7 +115,9 @@ export default function SearchResults() {
         {results.map(poster => (
          poster.poster_path != null ? <div className="poster-card" key={poster.id}>
             {/* <img src={poster.Poster} alt={poster.title} /> */}
+            <Link to={`/home/movies/${poster.id}`} key={poster.id}> 
            <img  src={`https://image.tmdb.org/t/p/w500${poster.poster_path}`}alt={poster.title}  />
+           </Link>
           </div>
           :
           ''

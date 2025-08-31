@@ -1,19 +1,22 @@
+/* Base search styles */
 .netflix-search-bar {
   display: flex;
   align-items: center;
-  background-color: #000;
   border: 1px solid white;
   border-radius: 3px;
   padding: 6px 10px;
   width: 300px;
   height: 36px;
+  background: transparent;
+  position: relative;
 }
 
 .netflix-search-icon {
   width: 20px;
   height: 20px;
   margin-right: 10px;
-  filter: invert(1); /* makes icon white on dark bg */
+  filter: invert(1);
+  flex-shrink: 0;
 }
 
 .netflix-search-input {
@@ -23,8 +26,135 @@
   outline: none;
   color: white;
   font-size: 14px;
+  min-width: 0;
 }
 
 .netflix-search-input::placeholder {
   color: gray;
+  background-color: transparent;
+}
+
+.search-toggle-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.search-toggle-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.close-search-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 2px;
+  transition: background-color 0.2s ease;
+}
+
+.close-search-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Tablet styles */
+@media (max-width: 1024px) {
+  .netflix-search-bar {
+    width: 250px;
+    height: 34px;
+  }
+  
+  .netflix-search-input {
+    font-size: 13px;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .netflix-search-bar {
+    width: 200px;
+    height: 32px;
+    padding: 4px 8px;
+  }
+  
+  .netflix-search-input {
+    font-size: 12px;
+  }
+  
+  .netflix-search-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+  }
+  
+  .search-toggle-btn {
+    padding: 6px;
+  }
+  
+  .close-search-btn {
+    font-size: 18px;
+  }
+}
+
+/* Small mobile styles */
+@media (max-width: 480px) {
+  .netflix-search-bar {
+    width: 150px;
+    height: 30px;
+    padding: 3px 6px;
+  }
+  
+  .netflix-search-input {
+    font-size: 11px;
+  }
+  
+  .netflix-search-icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 6px;
+  }
+  
+  .search-toggle-btn {
+    padding: 4px;
+  }
+  
+  .close-search-btn {
+    font-size: 16px;
+    padding: 0 3px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .netflix-search-bar {
+    width: 120px;
+    height: 28px;
+  }
+  
+  .netflix-search-input {
+    font-size: 10px;
+  }
+  
+  .netflix-search-input::placeholder {
+    font-size: 10px;
+  }
+  
+  .netflix-search-icon {
+    width: 12px;
+    height: 12px;
+    margin-right: 4px;
+  }
 }

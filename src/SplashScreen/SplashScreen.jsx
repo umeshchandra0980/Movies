@@ -7,8 +7,8 @@ export default function SplashScreen() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate('/home'); // Adjust based on your route
-    }, 3000); // 3 seconds (length of your GIF)
+      navigate('/home');
+    }, 3000); 
 
     return () => clearTimeout(timer);
   }, []);

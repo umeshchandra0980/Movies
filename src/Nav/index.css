@@ -1,12 +1,14 @@
-.movies-img{
-    height: 120px;
-    width: 120px;
+/* Base styles */
+.movies-img {
+  height: 120px;
+  width: 120px;
+}
 
+body {
+  margin: 0;
 }
-body{
-    margin: 0;
-}
-.nav-main{
+
+.nav-main {
   display: flex;
   justify-content: space-between;
   margin-top: 0;
@@ -15,188 +17,411 @@ body{
   left: 0;
   width: 100%;
   z-index: 10;
-  background-color: transparent; /* or rgba(...) */
-  backdrop-filter: blur(4px); /* optional for blur effect */
- height: 80px;
- color: white;
-
+  background-color: transparent;
+  backdrop-filter: blur(4px);
+  height: 80px;
+  color: white;
 }
-.tags{
-    display: flex;
-    margin-left: 20px;
-    color: white; 
 
+.sec-con {
+  display: flex;
+  align-items: center;
+  margin-left: 5%;
+  background-color: transparent;
+}
 
+.tags {
+  display: flex;
+  margin-left: 20px;
+  color: white;
 }
-.sec-con{
-    display: flex;
-    align-items: center;
-    margin-left: 10%;
-    background-color: transparent;
-}
+
 .nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-right:10%;
-  }
-  .nav-link {
-     /* default color for all links */
-    text-decoration: none;
-    
-   
-    font-weight: 500;
-    transition: color 0.3s ease;
-    border-bottom: 3px solid transparent;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-right: 5%;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-family: 'Gotham', 'Helvetica Neue', sans-serif;
+  font-weight: 700;
+  transition: color 0.3s ease;
+  border-bottom: 3px solid transparent;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #a020f0;
+  border-bottom: 3px solid #a020f0;
+}
+
+a, a:focus, a:active, a:visited {
+  text-decoration: none;
+  outline: none;
+  box-shadow: none;
+  color: inherit;
+}
+
+span {
+  margin-left: 12px;
+}
+
+/* Profile dropdown styles */
+.profile-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.profile-btn img {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 220px;
+  background: rgba(0, 0, 0, 0.95);
+  border: 1px solid #333;
+  border-radius: 5px;
+  padding: 10px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.profile-wrapper:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.dropdown-item img.icon,
+.dropdown-item svg {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.dropdown-item:hover {
+  background: #2a2a2a;
+}
+
+.divider {
+  border-top: 1px solid #333;
+  margin: 10px 0;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+}
+
+.profile-info img {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.sign-out {
+  text-align: center;
+  padding: 10px;
+  color: #aaa;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.sign-out:hover {
+  background: #2a2a2a;
+  color: white;
+}
+
+/* Mobile menu styles */
+.mobile-menu-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+  margin-left: auto;
+}
+
+.desktop-nav {
+  display: flex;
+}
+
+.mobile-nav-overlay {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 80px);
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 9;
+}
+
+.mobile-nav-overlay.open {
+  transform: translateX(0);
+}
+
+.mobile-nav-menu {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 1.5rem;
+}
+
+.mobile-nav-link {
+  font-size: 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #333;
+  display: block;
+  width: 100%;
+}
+
+/* Search styles */
+.netflix-search-bar {
+  display: flex;
+  align-items: center;
+  border: 1px solid white;
+  border-radius: 3px;
+  padding: 6px 10px;
+  width: 300px;
+  height: 36px;
+  background: transparent;
+  position: relative;
+}
+
+.netflix-search-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  filter: invert(1);
+}
+
+.netflix-search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 14px;
+}
+
+.netflix-search-input::placeholder {
+  color: gray;
+  background-color: transparent;
+}
+
+.search-toggle-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-search-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-wrapper {
+  position: relative;
+}
+
+/* Tablet styles */
+@media (max-width: 1024px) {
+  .nav-main {
+    padding: 0 2%;
   }
   
-  /* Active or hovered link */
-  .nav-link:hover,
-  .nav-link.active {
-    color: #a020f0; /* purple or any highlight color */
-    border-bottom: 3px solid #a020f0;
+  .sec-con {
+    margin-left: 2%;
   }
   
-  .search-container {
-    position: relative;
+  .nav-actions {
+    margin-right: 2%;
+    gap: 12px;
   }
   
-  /* .search-input {
-    padding: 8px 12px;
-    width: 0;
-    transition: width 0.4s ease;
-    background: white;
-    color: black;
-    border-radius: 4px;
-    border: none;
-    opacity: 0;
-    pointer-events: none;
-    
-  } */
-  a, a:focus, a:active, a:visited {
-    text-decoration: none;
-    outline: none;
-    box-shadow: none;
-    color: inherit; /* or your desired text color */
+  .movies-img {
+    height: 80px;
+    width: 80px;
   }
   
-  span{
-    margin-left: 12px;
-  }
-  .avatar{
-    margin-left: 30px;
-    height: 40px;
-    width: 45px;
-    border-radius: 20px;
-
-
+  .nav-main {
+    height: 70px;
   }
   
-  /* .search-icon {
-    width: 24px;
-    cursor: pointer;
-    position: absolute;
-    right: -36px;
-    top: 2px;
+  .mobile-nav-overlay {
+    top: 70px;
+    height: calc(100vh - 70px);
   }
-   */
-  /* .search-icon:hover + .search-input,
-  .search-input:focus {
-    width: 160px;
-    opacity: 1;
-    pointer-events: all;
-  } */
-
-
-
-  .profile-wrapper {
-    position: relative;
-    display: inline-block;
+  
+  .netflix-search-bar {
+    width: 250px;
   }
-
-  .profile-btn {
-    background: transparent;
-    border: none;
-    cursor: pointer;
+  
+  span {
+    margin-left: 8px;
   }
+}
 
+/* Mobile styles */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+  
+  .mobile-menu-btn {
+    display: block;
+  }
+  
+  .nav-main {
+    height: 60px;
+    padding: 0 1rem;
+  }
+  
+  .sec-con {
+    margin-left: 0;
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .movies-img {
+    height: 60px;
+    width: 60px;
+  }
+  
+  .nav-actions {
+    gap: 8px;
+    margin-right: 0;
+  }
+  
+  .mobile-nav-overlay {
+    top: 60px;
+    height: calc(100vh - 60px);
+  }
+  
+  .netflix-search-bar {
+    width: 200px;
+    height: 32px;
+    padding: 4px 8px;
+  }
+  
+  .netflix-search-input {
+    font-size: 12px;
+  }
+  
+  .netflix-search-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+  }
+  
   .profile-btn img {
-    width: 40px;
-    height: 40px;
-    border-radius: 4px;
-  }
-
-  .dropdown-menu {
-    position: absolute;
-    top: 50px;
-    right: 0;
-    width: 220px;
-    background: rgba(0, 0, 0, 0.95);
-    border: 1px solid #333;
-    border-radius: 5px;
-    padding: 10px 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
-    opacity: 0;
-   visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-    z-index: 100;
-  }
-
-  .profile-wrapper:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-
-  .dropdown-item {
-    display: flex;
-    align-items: center;
-    padding: 10px 16px;
-    color: #fff;
-    font-size: 14px;
-    text-decoration: none;
-    transition: background 0.2s ease;
-  }
-
-  .dropdown-item img.icon,
-  .dropdown-item svg {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-  }
-
-  .dropdown-item:hover {
-    background: #2a2a2a;
-  }
-
-  .divider {
-    border-top: 1px solid #333;
-    margin: 10px 0;
-  }
-
-  .profile-info {
-    display: flex;
-    align-items: center;
-    padding: 10px 16px;
-  }
-
-  .profile-info img {
     width: 32px;
     height: 32px;
-    border-radius: 4px;
-    margin-right: 10px;
   }
+  
+  .dropdown-menu {
+    width: 180px;
+    right: -20px;
+  }
+}
 
-  .sign-out {
-    text-align: center;
-    padding: 10px;
-    color: #aaa;
-    font-weight: bold;
-    cursor: pointer;
+/* Small mobile styles */
+@media (max-width: 480px) {
+  .nav-main {
+    padding: 0 0.5rem;
   }
+  
+  .movies-img {
+    height: 50px;
+    width: 50px;
+  }
+  
+  .netflix-search-bar {
+    width: 150px;
+    height: 30px;
+  }
+  
+  .profile-btn img {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .mobile-nav-menu {
+    padding: 1rem;
+  }
+  
+  .mobile-nav-link {
+    font-size: 1.2rem;
+    padding: 0.8rem 0;
+  }
+  
+  .dropdown-menu {
+    width: 160px;
+    right: -30px;
+  }
+  
+  .dropdown-item {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+}
 
-  .sign-out:hover {
-    background: #2a2a2a;
-    color: white;
+/* Very small screens */
+@media (max-width: 360px) {
+  .netflix-search-bar {
+    width: 120px;
   }
+  
+  .netflix-search-input::placeholder {
+    font-size: 11px;
+  }
+  
+  .mobile-nav-link {
+    font-size: 1rem;
+  }
+}

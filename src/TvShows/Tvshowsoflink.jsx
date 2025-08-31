@@ -42,6 +42,7 @@ export default function Tvshowsoflink() {
                 vote_average: each.vote_average,
                 adult: each.adult,
                 original_language: each.original_language,
+                backdrop_path:each.backdrop_path,
               }));
               settVSHOWS(fetchedData);
             }
@@ -56,7 +57,7 @@ export default function Tvshowsoflink() {
       <h2 className="section-heading">🎬 Top Rated Movies</h2>
       <div className='popular-grid-container'>
         
-      {tVSHOWS.map((movie, index) => (
+      {tVSHOWS.length >1?tVSHOWS.map((movie, index) => (
        <div className="card-3d " key={index}>
        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className="poster" />
        <div className="rating-badges">
@@ -71,8 +72,10 @@ export default function Tvshowsoflink() {
          </div>
        </div>
      </div>
+    
      
       ))
+      :<p>loading</p>
 
 
 }

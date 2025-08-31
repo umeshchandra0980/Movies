@@ -25,7 +25,7 @@ export default function TvShowsTrailer() {
                 setTvshows(videoKey);
               }
                else {
-                console.warn("❌ No valid trailer for", tvshows);
+                console.warn(" No valid trailer for", tvshows);
                 setTvshows(null);
               }
         }

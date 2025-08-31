@@ -4,6 +4,18 @@ import './Top.css'
 import Nav from '../Nav/Nav'
 import CinematicBackground from '../Home/CinematicBackground'
 export default function AllMovies() {
+   const [hoveredCard, setHoveredCard] = useState(null);
+          
+           
+          
+            const handleCardHover = (cardId) => {
+              setHoveredCard(cardId);
+            };
+          
+            const handleCardLeave = () => {
+              setHoveredCard(null);
+            };
+          
 
     const [allmovies,setAllmovies] = useState([])
     
@@ -25,6 +37,7 @@ export default function AllMovies() {
               vote_average: each.vote_average,
               adult: each.adult,
               original_language: each.original_language,
+              backdrop_path:each.backdrop_path,
             }));
             setAllmovies(fetchedData);
           }

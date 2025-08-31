@@ -1,18 +1,23 @@
 import { useState } from 'react';
 import './input.css';
 import { useNavigate } from 'react-router';
-
-import { useSearch } from '../Search/SearchProvider';// Adjusted path
+import { useSearch } from '../Search/SearchProvider';
+import { CiSearch } from "react-icons/ci";
 
 export default function Input() {
-  
-
-  const { searchQuery, setSearchQuery ,setIsOpen,isOpen} = useSearch();
+  const { searchQuery, setSearchQuery, setIsOpen, isOpen } = useSearch();
   const navigate = useNavigate();
 
   const toggleSearch = () => {
     setIsOpen(true);
   };
+
+  const closeSearch = () => {
+    setIsOpen(false);
+    setSearchQuery('');
+  };
+  
+
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -20,19 +25,11 @@ export default function Input() {
     const params = new URLSearchParams();
     if (value.trim()) {
       params.set("query", value);
-      navigate(`/home?${params.toString()}`, { replace: true }); // like Netflix
+      navigate(`/home?${params.toString()}`, { replace: true });
     } else {
-      navigate("/home", { replace: true }); // clears the search
+      navigate("/home", { replace: true });
     }
   };
-
-  // const fi = (e) => {
-    
-  //   const value = e.target.value;
-
-  // setSearchQuery(value);
-  // // navigate(`/search?query=${encodeURIComponent(searchValue)}`);
-  // };
 
   return (
     <>
@@ -48,14 +45,25 @@ export default function Input() {
             placeholder="Titles, people, genres"
             value={searchQuery}
             onChange={handleChange}
-            // onKeyDown={(e) =>  handleSearch()}
             className="netflix-search-input"
+            autoFocus
           />
+          <button 
+            className="close-search-btn"
+            onClick={closeSearch}
+            aria-label="Close search"
+          >
+            ×
+          </button>
         </div>
       ) : (
-        <div onClick={toggleSearch}>
-          <h1>🔍</h1>
-        </div>
+        <button 
+          className="search-toggle-btn"
+          onClick={toggleSearch}
+          aria-label="Open search"
+        >
+          <CiSearch size={20} />
+        </button>
       )}
     </>
   );

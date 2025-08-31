@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Account.css";
 import { FaUserCircle, FaSearch, FaInstagram, FaFacebookF, FaLinkedinIn, FaYoutube, FaUser} from "react-icons/fa";
 import Footer from "../Footer/Footer";
-
+import { Link } from "react-router";
 export default function Account() {
     const [username] = useState("i");
     const [password] = useState("password");
@@ -73,12 +73,12 @@ export default function Account() {
                 <div className="containerss header-inner">
                     <div className="left">
                         <FaUser Circle />
-                        <span>NANDHA</span>
+                        <span></span>
                     </div>
-                    <div className="center">COMIC VERSE</div>
+                    <div className="center">Movies</div>
                     <div className="right">
                         <div className="text-block">
-                            <div>COMIC UNLIMITED</div>
+                            <div>ZEN UNLIMITED</div>
                             <div>VERSE</div>
                         </div>
                         <FaSearch />
@@ -89,15 +89,15 @@ export default function Account() {
             {/* Navigation */}
             <nav>
                 <ul className="containerss">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Popular</a></li>
-                    <li><a href="#">Heros</a></li>
-                    <li><a href="#">Favourites</a></li>
+                    <li><Link to="/Home"> <a>Home</a></Link></li>
+                    <li><Link to="/popular"> <a>Popular</a></Link></li>
+                    <li><a href="/tvshows">Tvshows</a></li>
+                    <li><a href="/wishlist">Whishlist</a></li>
                 </ul>
             </nav>
 
             {/* Banner */}
-            <section className="banner">
+            {/* <section className="banne">
                 <img
                     src="https://via.placeholder.com/1440x250" // Placeholder image
                     alt="Comic banner"
@@ -105,7 +105,7 @@ export default function Account() {
                     height="250"
                 />
                 <h1>MyAccount</h1>
-            </section>
+            </section> */}
 
             {/* Main content */}
          
@@ -116,9 +116,13 @@ export default function Account() {
       <li>
         <a href="#" className="active">
           <i className="fas fa-home"></i>
-          <span>Overview</span>
+          <span>Profiles</span>
+
+         
         </a>
+        
       </li>
+      
       <li>
         <a href="#">
           <i className="fas fa-credit-card"></i>
@@ -140,10 +144,19 @@ export default function Account() {
       <li>
         <a href="#">
           <i className="fas fa-user-friends"></i>
-          <span>Profiles</span>
+        
+          <span>Overview</span>
+         
+               
+              
         </a>
       </li>
+    
+           
+      
+             
     </ul>
+    
   </nav>
   
   <main className="maincontent-e-5">
