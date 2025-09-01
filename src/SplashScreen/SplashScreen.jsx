@@ -1,7 +1,7 @@
 // SplashScreen.jsx
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
-import './splash.css'
+// import './splash.css'
 export default function SplashScreen() {
   const navigate = useNavigate();
 
