@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import "./MovieCard.css";
+// import "./movieCard.css";
 import Radio from "../Loders/Radio";
 
 export default function MovieCard({ movie }) {
