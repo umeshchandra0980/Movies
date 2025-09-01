@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router";
 import { SearchProvider } from "./Search/SearchProvider";
 import NetflixLoader from "./NetflixLoder/NetflixLoader"; // fallback loader
 import LoadingAni from "./LoadingAnimation/LoadingAni.jsx";
-import SplashScreen from "./SplashScreen/SplashScreen.jsx";
+// import SplashScreen from "./SplashScreen/SplashScreen.jsx";
 // Lazy imports
 const Login = lazy(() => import("./Login/Login"));
 const Home = lazy(() => import("./Home/Home"));
